@@ -19,7 +19,7 @@ jobs:
    FULLNAME: 'Mary Doe'
   steps:
    - run: echo "My host is $MY_HOST" and $FULLNAME
-   - run: echo "Hello ${{ github.actor }} $FULLNAME"
+   - run: echo "Hello ${{ github.actor }} ${{ env.FULLNAME }}"
 
  test-job:
   runs-on: ubuntu-latest
