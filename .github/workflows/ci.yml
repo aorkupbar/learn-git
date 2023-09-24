@@ -11,7 +11,7 @@ on:
 
 env:
  MY_HOST: '127.0.0.1'
- COMPANY_NAME: 'ABC TEST'
+ COMPANY_NAME: 'ENV COMPANY'
 
 jobs:
  build-job:
@@ -20,7 +20,9 @@ jobs:
    FULLNAME: 'Mary Doe'
   steps:
    - run: echo ${{ vars.COMPANY_NAME }}
-   - run: echo "My host is $MY_HOST" and $FULLNAME
+   - run: echo ${{ env.COMPANY_NAME }}
+   - run: echo ${{ secrets.MYSQL_PASSWORD }}
+   - run: echo "My host is $MY_HOST and $FULLNAME $COMPANY_NAME"
    - run: echo "Hello ${{ github.actor }} ${{ env.FULLNAME }}"
 
  test-job:
